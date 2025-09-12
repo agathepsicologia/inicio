@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agathe Primault - Psicóloga Sanitaria | Terapia Individual y Parejas</title>
+    <meta name="description" content="Psicóloga Sanitaria especializada en terapia contextual-comportamental. Acompañamiento terapéutico para adolescentes, adultos y parejas">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #f3a6be;
+            --primary-dark: #e1899f;
+            --text-dark: #2c2c2c;
+            --text-light: #666;
+            --background: #ffffff;
+            --light-bg: #fafafa;
+            --border: #e5e5e5;
+            --shadow: 0 4px 20px rgba(0,0,0,0.1);
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--background);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .logo-icon .cls-1 {
+            fill: var(--primary-color);
+            transition: fill 0.3s ease;
+        }
+
+        .logo:hover .logo-icon .cls-1 {
+            fill: var(--primary-dark);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--gradient);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(243, 166, 190, 0.4);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 30px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3), 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3), 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3), 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--light-bg) 0%, rgba(243, 166, 190, 0.1) 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(243, 166, 190, 0.1) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(243, 166, 190, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section:nth-child(even) {
+            background: var(--light-bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .profile-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            background: var(--gradient);
+            padding: 4px;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .license-number {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .specialty-tag {
+            background: var(--gradient);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .price-tag {
+            background: var(--gradient);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* Process Steps */
+        .process-section {
+            margin: 5rem 0;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .step p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Commitment Section */
+        .commitment-section {
+            background: var(--light-bg);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            margin-top: 5rem;
+        }
+
+        .commitment-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+
+        .commitment-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .commitment-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .commitment-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .commitment-item p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--primary-color);
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .stars {
+            color: #ffc107;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--light-bg);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .contact-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .contact-details h4 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details p {
+            color: var(--text-light);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form h3 {
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .submit-btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Trust Indicators */
+        .trust-indicators {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .trust-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .trust-item-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .trust-item h4 {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .trust-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-button {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                font-size: 26px;
+            }
+        }
+
+        /* Placeholder for missing profile image */
+        .profile-image .placeholder {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f3a6be 0%, #e1899f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#inicio" class="logo">
+                <div class="logo-icon">
+                    <svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 595.28 841.89">
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    fill: #f3a6be;
+                                }
+                            </style>
+                        </defs>
+                        <path class="cls-1" d="M285.54,359.87v-54.3c0-3.55-4.39-9.77-7.28-11.89l-7.83-5.24h54.64l-10.11,7.61c-1.63,1.78-5,7.87-5,10.1v53.72c10.58-1.6,24.73-4.77,27.64-16.81,3.15-13.04-2.98-35.71,4.43-46.1,3.1-4.35,11.16-8.52,16.47-8.52h11.92l-6.05,5.86c-10.06,13.62,2.89,43.77-10.32,62.86-8.68,12.55-29.25,19.3-44.08,18.97-.23,9.63-.54,17.68,3.22,26.7,5.05,12.12,15.4,20.13,24.41,29.04,7.32,7.25,15.8,17.53,24.88,22.18,21.88,11.21,48.96,3.92,60.95-17.71,14.04-25.34-5.39-59.53-35.44-51.67-14.18,3.71-24.43,20.7-17.39,34.56,4.73,9.33,19.33,13.44,23.64,1.9-1.88-1.47-3.86-.59-6.08-2.02-10.31-6.63-.78-22.66,12.33-18.13,20.35,7.04,11.05,39.5-10.65,43.04-34.59,5.64-50.93-37.35-29.59-62.67,26.59-31.54,78.08-14.38,85.58,24.86,8.71,45.57-38.51,83.64-81.21,66.32,8.79,31.43-6.26,65.91-37.49,77.26-43,15.63-89.26-21.12-72.98-66.52,11.52-32.13,55.2-45.52,74.66-13.01,12.86,21.48,2.63,52.1-25.53,49.31-15.49-1.53-26.04-22.9-12.47-32.19,11.95-8.18,21.27,6.35,12.17,15.93,16.27,2.92,18.63-15.61,10.12-26.08-15.12-18.62-41.98-1.09-43.83,19.42-3.95,43.73,58.65,53.65,75.83,12.46s-32.91-98.3-73.21-66.75c-10.96,8.58-18.55,20.13-31.11,27-50.56,27.68-112.96-25.94-85.77-77.56,23.21-44.06,93.93-31.06,89.24,22.36-2.61,29.71-45.1,42.75-58.05,15.04-5.18-11.08-.59-29.35,13.59-29.25,13.68.09,16.11,21.39,1.45,20.33,2.46,11.75,15.97,9.1,21.75,1.11,9.87-13.65-1.1-32.71-16.07-36.7-26.01-6.94-44.98,20.23-37.82,44.17,7.92,26.47,38.87,37.55,63.17,25.61,8.98-4.41,30.54-25.98,37.87-34.19,4.42-4.96,9.24-11.09,11.83-17.22,3.83-9.09,3.97-17.18,3.57-26.93-19.44-.81-45.44-9.78-49.74-31.32-2.71-13.56,2.94-40.56-4.92-50.25l-7.54-6.11h14.24c5.01,0,12.06,4.23,15.06,8.18,7.76,10.23,3.17,31.2,4.42,43.79,1.41,14.21,16.48,18.17,28.48,19.46Z"/>
+                    </svg>
+                </div>
+                <div>
+                    <div>Agathe Psicología</div>
+                    <div style="font-size: 0.7rem; font-weight: 400; opacity: 0.8;">Psicóloga Sanitaria</div>
+                </div>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <a href="#contacto" class="cta-button">Cita</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Agathe Primault</h1>
+                <div class="hero-subtitle">Psicóloga Sanitaria</div>
+                <div class="hero-description">
+                    Acompañamiento terapéutico personalizado para adolescentes, adultos y parejas. 
+                    Creemos juntos un espacio seguro para tu transformación y bienestar.
+                </div>
+                <div class="hero-buttons">
+                    <a href="#contacto" class="btn btn-primary">📅 Reserva tu cita</a>
+                    <a href="#servicios" class="btn btn-secondary">🔍 Descubre mis servicios</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre-mi" class="section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-visual fade-in">
+                    <div class="profile-card">
+                        <div class="profile-image">
+                            <img src="profile.jpg" alt="Agathe Primault - Psicóloga Sanitaria" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                            <div class="placeholder" style="display: none;">AP</div>
+                        </div>
+                        <div class="profile-name">Agathe Primault</div>
+                        <div class="profile-title">Psicóloga Sanitaria</div>
+                        <div class="license-number">N° M-40424</div>
+                    </div>
+                </div>
+                
+                <div class="about-text fade-in">
+                    <h3>🌟 Sobre mí</h3>
+                    <p>Lo que me llevó a estudiar psicología fue mi curiosidad por entender por qué nos comportamos como lo hacemos.</p>
+                    <p>Me gradué en Psicología en la Universidad Complutense de Madrid, con especialización en neuropsicología. Durante mi formación, tuve la oportunidad de realizar mis prácticas en la Fundación Neuron, un centro especializado en neuropsicología infantil y psicología clínica aplicada.</p>
+                    <p>Tras completar el Máster en Psicología General Sanitaria, decidí especializarme en modificación de conducta, completando formaciones en Análisis Funcional de la Conducta y especializándome en Habilidades Terapéuticas.</p>
+                    <p><strong>Lo que más valoro de mi trabajo es poder ayudar a las personas a comprender mejor su situación y acompañarlas para que encuentren nuevas formas de afrontar sus dificultades y avancen hacia una vida más coherente con lo que realmente les importa.</strong></p>
+                    
+                    <div class="specialties-grid">
+                        <div class="specialty-tag">Ansiedad</div>
+                        <div class="specialty-tag">Estrés</div>
+                        <div class="specialty-tag">Depresión</div>
+                        <div class="specialty-tag">Autoestima</div>
+                        <div class="specialty-tag">Perinatal</div>
+                        <div class="specialty-tag">Trauma</div>
+                        <div class="specialty-tag">Parejas</div>
+                        <div class="specialty-tag">Burn-out</div>
+                        <div class="specialty-tag">Alimentación</div>
+                        <div class="specialty-tag">Hipocondría</div>
+                        <div class="specialty-tag">Agresividad</div>
+                        <div class="specialty-tag">Agorafobia</div>
+                        <div class="specialty-tag">Fobia social</div>
+                        <div class="specialty-tag">Insomnio</div>
+                        <div class="specialty-tag">Bullying</div>
+                        <div class="specialty-tag">Apatía</div>
+                        <div class="specialty-tag">Duelo</div>
+                        <div class="specialty-tag">Hábitos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>🎯 Mis Servicios Terapéuticos</h2>
+                <p>Acompañamiento personalizado, adaptado a tus necesidades, con un enfoque científico y cercano</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">🧠</div>
+                    <h3>Terapia Individual Adultos</h3>
+                    <p>Acompañamiento personalizado para adultos que desean superar sus dificultades y desarrollar su bienestar psicológico. Sesiones adaptadas a tu ritmo y a tus objetivos personales.</p>
+                    <div class="price-tag">A partir de 60€ / sesión</div>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">🧑‍🤝‍🧑</div>
+                    <h3>Terapia de Parejas</h3>
+                    <p>Un acompañamiento terapéutico para mejorar la comunicación, superar los conflictos y fortalecer los lazos en vuestra relación, desde una mirada sistémica y compasiva.</p>
+                    <div class="price-tag">A partir de 80€ / sesión</div>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">🌱</div>
+                    <h3>Terapia Adolescentes</h3>
+                    <p>Acompañamiento especializado para adolescentes con dificultades emocionales, relacionales o conductuales. Enfoque adaptado a su desarrollo.</p>
+                    <div class="price-tag">A partir de 60€ / sesión</div>
+                </div>
+            </div>
+
+            <!-- Process Section -->
+            <div class="process-section fade-in">
+                <div class="section-header">
+                    <h2>⚙️ Funcionamiento de la Terapia Psicológica</h2>
+                </div>
+                
+                <div class="process-steps">
+                    <div class="step fade-in">
+                        <div class="step-number">1</div>
+                        <h4>Primera Consulta</h4>
+                        <p>Evaluación exhaustiva de tu demanda, tu historia y tu contexto actual (60-90 minutos)</p>
+                    </div>
+                    
+                    <div class="step fade-in">
+                        <div class="step-number">2</div>
+                        <h4>Análisis Funcional</h4>
+                        <p>Compartimos el análisis de tu situación y co-construimos los objetivos terapéuticos</p>
+                    </div>
+                    
+                    <div class="step fade-in">
+                        <div class="step-number">3</div>
+                        <h4>Plan de Intervención</h4>
+                        <p>Elaboración de un plan personalizado adaptado a tus necesidades, objetivos y ritmo</p>
+                    </div>
+                    
+                    <div class="step fade-in">
+                        <div class="step-number">4</div>
+                        <h4>Sesiones Regulares</h4>
+                        <p>Encuentros semanales o quincenales según tus necesidades (45-50 minutos)</p>
+                    </div>
+
+                    <div class="step fade-in">
+                        <div class="step-number">5</div>
+                        <h4>Consolidación de logros</h4>
+                        <p>La fase final de tu proceso. Reducimos gradualmente la frecuencia de las sesiones para que puedas aplicar tus nuevas herramientas de forma independiente, consolidando tus progresos y preparándote para caminar con total confianza por tu cuenta.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Commitment Section -->
+            <div class="commitment-section fade-in">
+                <h2>🤝 Mi Compromiso Contigo</h2>
+                <div class="commitment-list">
+                    <div class="commitment-item fade-in">
+                        <h4>🛡️ Crear un Espacio Seguro</h4>
+                        <p>Mi prioridad es establecer una relación terapéutica sólida, basada en la empatía, el respeto y la comprensión. Puedes hablar sin juicios y con confianza.</p>
+                    </div>
+                    
+                    <div class="commitment-item fade-in">
+                        <h4>🎯 Enfoque Personalizado</h4>
+                        <p>Partimos de una evaluación exhaustiva de lo que te trae a consulta, teniendo en cuenta tu historia y contexto actual para diseñar un plan adaptado.</p>
+                    </div>
+                    
+                    <div class="commitment-item fade-in">
+                        <h4>🔬 Evidencia Científica</h4>
+                        <p>Me guío por modelos de intervención respaldados por la investigación, manteniendo siempre un alto estándar ético y profesional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonios" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>💬 Lo que dicen mis pacientes</h2>
+                <p>Testimonios reales de quienes he acompañado en su camino</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">
+                        "Nunca había asistido a terapia y la experiencia ha sido muy positiva, sientes un equilibrio mental necesario para afrontar tu vida."
+                    </div>
+                    <div class="testimonial-author">- A.R. , 32 años</div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">
+                        "Primera cita. Explicaciones precisas sobre la terapia y los objetivos. Sobre la foema de trabajar. Cercania. Profesionalidad."
+                    </div>
+                    <div class="testimonial-author">- G. , 42 años</div>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">
+                        "Cercania y profesionalidad. Escucha activa. El menor atendido se siente a gusto."
+                    </div>
+                    <div class="testimonial-author">- M. , madre de paciente</div>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">
+                        "Agathe es una profesional estupenda! A parte de sentirme cómoda en sus sesiones me hace saber de que manera se acotarán ciertos asuntos una vez analizado el contexto, cosa que además de resultarme interesante, me ayuda a ver las cosas con perspectiva, como un proceso al que hay que dedicarle tiempo y compromiso. Estoy realmente contenta! Y por ello recomiendo al 100% a Agathe :D"
+                    </div>
+                    <div class="testimonial-author">- R.L. , 30 años</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="section contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>¿Listo/a para dar más sentido a tu vida?</h2>
+                    <p class="contact-description">
+                        Comienza una terapia para avanzar hacia tus objetivos
+                    </p>
+                    <div class="contact-item">
+                        <div class="contact-icon"><span>📧</span></div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>agathepsicologia@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><span>📞</span></div>
+                        <div class="contact-details">
+                            <h4>Teléfono / WhatsApp</h4>
+                            <p>+34 644 57 41 79</p>
+                            <a href="https://wa.me/‪644574179" target="_blank" style="color: #25d366; text-decoration: none; font-weight: 600; margin-top: 5px; display: inline-block;">
+                                📱 Escribir por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><span>📍</span></div>
+                        <div class="contact-details">
+                            <h4>Modalidad</h4>
+                            <p>Online y en mi consulta de Madrid</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <h3>Enviar un mensaje</h3>
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="Tu email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Tu número de teléfono">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Tipo de consulta</label>
+                        <select id="service" name="service">
+                            <option value="">Selecciona un servicio</option>
+                            <option value="individual">Terapia individual adulto</option>
+                            <option value="couple">Terapia de pareja</option>
+                            <option value="teen">Terapia adolescente</option>
+                            <option value="evaluation">Consulta de evaluación</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Tu mensaje"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Enviar</button>
+                </form>
+            </div>
+            
+            <!-- Trust Indicators -->
+            <div class="trust-indicators">
+                <div class="trust-item fade-in">
+                    <div class="trust-item-icon">🔒</div>
+                    <h4>Confidencialidad</h4>
+                    <p>Respeto absoluto del secreto profesional</p>
+                </div>
+                <div class="trust-item fade-in">
+                    <div class="trust-item-icon">⚡</div>
+                    <h4>Respuesta Rápida</h4>
+                    <p>Respuesta en menos de 24h</p>
+                </div>
+                <div class="trust-item fade-in">
+                    <div class="trust-item-icon">👍</div>
+                    <h4>Sin Juicio</h4>
+                    <p>Un lugar donde puedes ser tú</p>
+                </div>
+                <div class="trust-item fade-in">
+                    <div class="trust-item-icon">🎯</div>
+                    <h4>Personalizado</h4>
+                    <p>Enfoque adaptado a tus necesidades</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--text-dark); color: white; padding: 2rem 0; text-align: center;">
+        <div class="container">
+            <p>&copy; 2024 Agathe Primault - Psicóloga Sanitaria. Todos los derechos reservados.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.7;">N° Colegiado M-40424</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/‪644574179" target="_blank" class="whatsapp-button" title="Contactar por WhatsApp">
+        📱
+    </a>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'var(--background)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Enviando...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.textContent = '✅ Mensaje enviado';
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 1000);
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = Math.random() * 0.3 + 's';
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements that should animate
+        document.querySelectorAll('.service-card, .testimonial-card, .trust-item, .step, .commitment-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add some dynamic interaction effects
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(-10px) scale(1)';
+            });
+        });
+
+        // Add floating animation to specialties
+        document.querySelectorAll('.specialty-tag').forEach((tag, index) => {
+            tag.style.animationDelay = (index * 0.1) + 's';
+            tag.style.animation = 'float 3s ease-in-out infinite';
+        });
+
+        // Add contact form validation
+        const inputs = document.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.hasAttribute('required') && !this.value) {
+                    this.style.borderColor = '#ff6b6b';
+                } else {
+                    this.style.borderColor = 'var(--border)';
+                }
+            });
+
+            input.addEventListener('focus', function() {
+                this.style.borderColor = 'var(--primary-color)';
+            });
+        });
+    </script>
+</body>
+</html>
+                
