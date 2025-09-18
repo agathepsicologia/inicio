@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agathe Primault - Psicóloga Sanitaria | Terapia Individual y Parejas</title>
-    <meta name="description" content="Psicóloga Sanitaria especializada en terapia contextual-comportamental. Acompañamiento terapéutico para adolescentes, adultos y parejas">
+    <title>Agathe Primault - PsicÃ³loga Sanitaria | Terapia Individual y Parejas</title>
+    <meta name="description" content="PsicÃ³loga Sanitaria especializada en terapia contextual-comportamental. AcompaÃ±amiento terapÃ©utico para adolescentes, adultos y parejas">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         * {
             margin: 0;
@@ -52,22 +53,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 1.5rem 0;
+            min-height: 80px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 1.2rem;
+            gap: 15px;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--text-dark);
             text-decoration: none;
         }
 
         .logo-icon {
-            width: 50px;
-            height: 50px;
+            width: 65px;
+            height: 65px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -551,43 +553,101 @@
         /* Testimonials Section */
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
         .testimonial-card {
             background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
+            padding: 2.5rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(243, 166, 190, 0.1);
+            overflow: hidden;
         }
 
         .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .testimonial-card::after {
             content: '"';
             position: absolute;
-            top: -10px;
-            left: 20px;
+            top: 15px;
+            right: 25px;
             font-size: 4rem;
             color: var(--primary-color);
-            opacity: 0.3;
+            opacity: 0.1;
+            font-family: serif;
+            line-height: 1;
         }
 
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--text-dark);
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
         .stars {
             color: #ffc107;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            display: flex;
+            gap: 2px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 1.05rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .author-details {
+            color: var(--text-light);
+            font-size: 0.9rem;
         }
 
         /* Contact Section */
@@ -653,6 +713,24 @@
             font-size: 1.5rem;
         }
 
+        .form-intro {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--light-bg);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .form-intro p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .form-intro p:last-child {
+            margin-bottom: 0;
+        }
+
         .form-group {
             margin-bottom: 1.5rem;
         }
@@ -662,6 +740,13 @@
             margin-bottom: 0.5rem;
             font-weight: 600;
             color: var(--text-dark);
+        }
+
+        .required {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+            font-style: italic;
         }
 
         .form-group input,
@@ -745,6 +830,21 @@
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
+            }
+
+            .nav {
+                padding: 1.2rem 0;
+                min-height: 75px;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+                gap: 12px;
+            }
+
+            .logo-icon {
+                width: 55px;
+                height: 55px;
             }
 
             .nav-menu {
@@ -903,7 +1003,7 @@
                         </div>
                         <div class="profile-name">Agathe Primault</div>
                         <div class="profile-title">Psicóloga Sanitaria</div>
-                        <div class="license-number">N° M-40424</div>
+                        <div class="license-number">Nº M-40424</div>
                     </div>
                 </div>
                 
@@ -1042,35 +1142,59 @@
             
             <div class="testimonials-grid">
                 <div class="testimonial-card fade-in">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="stars">★★★★★</div>
                     <div class="testimonial-text">
                         "Nunca había asistido a terapia y la experiencia ha sido muy positiva, sientes un equilibrio mental necesario para afrontar tu vida."
                     </div>
-                    <div class="testimonial-author">- A.R. , 32 años</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AR</div>
+                        <div class="author-info">
+                            <div class="author-name">A.R.</div>
+                            <div class="author-details">32 años</div>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="testimonial-card fade-in">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="stars">★★★★★</div>
                     <div class="testimonial-text">
-                        "Primera cita. Explicaciones precisas sobre la terapia y los objetivos. Sobre la foema de trabajar. Cercania. Profesionalidad."
+                        "Primera cita. Explicaciones precisas sobre la terapia y los objetivos. Sobre la forma de trabajar. Cercanía. Profesionalidad."
                     </div>
-                    <div class="testimonial-author">- G. , 42 años</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">G</div>
+                        <div class="author-info">
+                            <div class="author-name">G.</div>
+                            <div class="author-details">42 años</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="testimonial-card fade-in">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="stars">★★★★★</div>
                     <div class="testimonial-text">
-                        "Cercania y profesionalidad. Escucha activa. El menor atendido se siente a gusto."
+                        "Cercanía y profesionalidad. Escucha activa. El menor atendido se siente a gusto."
                     </div>
-                    <div class="testimonial-author">- M. , madre de paciente</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <div class="author-name">M.</div>
+                            <div class="author-details">Madre de paciente</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="testimonial-card fade-in">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="stars">★★★★★</div>
                     <div class="testimonial-text">
                         "Agathe es una profesional estupenda! A parte de sentirme cómoda en sus sesiones me hace saber de que manera se acotarán ciertos asuntos una vez analizado el contexto, cosa que además de resultarme interesante, me ayuda a ver las cosas con perspectiva, como un proceso al que hay que dedicarle tiempo y compromiso. Estoy realmente contenta! Y por ello recomiendo al 100% a Agathe :D"
                     </div>
-                    <div class="testimonial-author">- R.L. , 30 años</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RL</div>
+                        <div class="author-info">
+                            <div class="author-name">R.L.</div>
+                            <div class="author-details">30 años</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1112,34 +1236,56 @@
                 </div>
                 
                 <form class="contact-form" id="contactForm">
-                    <h3>Enviar un mensaje</h3>
-                    <div class="form-group">
-                        <label for="name">Nombre</label>
-                        <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                    <div class="form-intro">
+                        <p>Este formulario es un primer paso, sencillo y <strong>confidencial</strong>.</p>
+                        <p>Puedes contarme lo que te está pasando o lo que necesitas. Yo leeré tu mensaje personalmente y te responderé lo antes posible. No hace falta que lo expliques todo ni que sepas por dónde empezar: estoy para acompañarte.</p>
                     </div>
+                    
+                    <div class="form-group">
+                        <label for="name">Nombre completo <span class="required">*Obligatorio*</span></label>
+                        <input type="text" id="name" name="name" required placeholder="Tu nombre completo">
+                    </div>
+                    
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="Tu email">
+                        <input type="email" id="email" name="email" placeholder="Tu email">
                     </div>
+                    
                     <div class="form-group">
                         <label for="phone">Teléfono</label>
                         <input type="tel" id="phone" name="phone" placeholder="Tu número de teléfono">
                     </div>
+                    
                     <div class="form-group">
-                        <label for="service">Tipo de consulta</label>
-                        <select id="service" name="service">
-                            <option value="">Selecciona un servicio</option>
-                            <option value="individual">Terapia individual adulto</option>
-                            <option value="couple">Terapia de pareja</option>
-                            <option value="teen">Terapia adolescente</option>
-                            <option value="evaluation">Consulta de evaluación</option>
+                        <label for="age">Edad</label>
+                        <input type="number" id="age" name="age" min="1" max="120" placeholder="Tu edad">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="therapy-for">¿Para quién sería la terapia? <span class="required">*Obligatorio*</span></label>
+                        <select id="therapy-for" name="therapy-for" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="myself">Para mí</option>
+                            <option value="child">Para mi hijo/a</option>
+                            <option value="family">Para un familiar o persona cercana</option>
                         </select>
                     </div>
+                    
                     <div class="form-group">
-                        <label for="message">Mensaje</label>
-                        <textarea id="message" name="message" rows="6" required placeholder="Tu mensaje"></textarea>
+                        <label for="previous-therapy">¿Has asistido a terapia anteriormente? <span class="required">*Obligatorio*</span></label>
+                        <select id="previous-therapy" name="previous-therapy" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="yes">Sí</option>
+                            <option value="no">No</option>
+                        </select>
                     </div>
-                    <button type="submit" class="submit-btn">Enviar</button>
+                    
+                    <div class="form-group">
+                        <label for="therapy-goals">¿Hay algo que te gustaría encontrar o trabajar en terapia?</label>
+                        <textarea id="therapy-goals" name="therapy-goals" rows="6" placeholder="Cuéntame lo que te está pasando o lo que necesitas trabajar..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Enviar mensaje</button>
                 </form>
             </div>
             
@@ -1173,13 +1319,13 @@
     <footer style="background: var(--text-dark); color: white; padding: 2rem 0; text-align: center;">
         <div class="container">
             <p>&copy; 2024 Agathe Primault - Psicóloga Sanitaria. Todos los derechos reservados.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.7;">N° Colegiado M-40424</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.7;">Nº Colegiado M-40424</p>
         </div>
     </footer>
 
     <!-- WhatsApp Button -->
     <a href="https://wa.me/‪644574179" target="_blank" class="whatsapp-button" title="Contactar por WhatsApp">
-        📱
+        <i class="fa fa-whatsapp"></i>
     </a>
 
     <script>
@@ -1232,74 +1378,3 @@
             
             // Simulate form submission
             const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = 'Enviando...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                submitBtn.textContent = '✅ Mensaje enviado';
-                setTimeout(() => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                    this.reset();
-                }, 2000);
-            }, 1000);
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationDelay = Math.random() * 0.3 + 's';
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all elements that should animate
-        document.querySelectorAll('.service-card, .testimonial-card, .trust-item, .step, .commitment-item').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Add some dynamic interaction effects
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-15px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(-10px) scale(1)';
-            });
-        });
-
-        // Add floating animation to specialties
-        document.querySelectorAll('.specialty-tag').forEach((tag, index) => {
-            tag.style.animationDelay = (index * 0.1) + 's';
-            tag.style.animation = 'float 3s ease-in-out infinite';
-        });
-
-        // Add contact form validation
-        const inputs = document.querySelectorAll('input, textarea, select');
-        inputs.forEach(input => {
-            input.addEventListener('blur', function() {
-                if (this.hasAttribute('required') && !this.value) {
-                    this.style.borderColor = '#ff6b6b';
-                } else {
-                    this.style.borderColor = 'var(--border)';
-                }
-            });
-
-            input.addEventListener('focus', function() {
-                this.style.borderColor = 'var(--primary-color)';
-            });
-        });
-    </script>
-</body>
-</html>
-                
